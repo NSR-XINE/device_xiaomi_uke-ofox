@@ -41,9 +41,15 @@ TW_EXCLUDE_APEX := true
 TW_HAS_EDL_MODE := true
 
 # Haptic
-TW_SUPPORT_INPUT_AIDL_HAPTICS := true
-TW_SUPPORT_INPUT_AIDL_HAPTICS_FQNAME := "IVibrator/vibratorfeature"
-TW_SUPPORT_INPUT_AIDL_HAPTICS_FIX_OFF := true
+FIXED_HAPTICS := false
+
+ifeq ($(FIXED_HAPTICS),true)
+   TW_SUPPORT_INPUT_AIDL_HAPTICS := true
+   TW_SUPPORT_INPUT_AIDL_HAPTICS_FQNAME := "IVibrator/vibratorfeature"
+   TW_SUPPORT_INPUT_AIDL_HAPTICS_FIX_OFF := true
+else
+   TW_NO_HAPTICS := true
+endif
 
 # Device related
 TW_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID := true
