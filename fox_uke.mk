@@ -75,4 +75,7 @@ OF_DEFAULT_TIMEZONE := GMT0;BST,M3.5.0,M10.5.0
 # Set this to 1 to avoid the new 'NO KERNEL CONFIG' error, when using a prebuilt kernel
 OF_FORCE_PREBUILT_KERNEL := 0
 
+# Set this to 1 if your device uses aidl (as opposed to hidl) to handle boot control, particularly changing slots
+OF_USE_AIDL_BOOT_CONTROL := 1
+
 #
