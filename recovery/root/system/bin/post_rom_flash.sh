@@ -19,6 +19,9 @@ LOGMSG "Setting instructions for next reboot..."
 echo "install /FFiles/DFE.zip" > /cache/recovery/openrecoveryscript
 echo "noForceReboot" >> /cache/recovery/openrecoveryscript
 
+LOGMSG "Preserving recovery.log before recovery reboot..."
 LOGMSG "---$SCRIPT_NAME end---"
+mkdir -p /sdcard/Fox/logs
+cp /tmp/recovery.log "/sdcard/Fox/logs/recovery_$(date +"%Y%m%d_%H%M%S").log"
 
 reboot recovery
