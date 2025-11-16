@@ -17,7 +17,6 @@ done
 
 LOGMSG "Setting instructions for next reboot..."
 echo "install /FFiles/DFE.zip" > /cache/recovery/openrecoveryscript
-echo "noForceReboot" >> /cache/recovery/openrecoveryscript
 
 LOGMSG "Preserving recovery.log before recovery reboot..."
 LOGMSG "---$SCRIPT_NAME end---"

@@ -82,4 +82,7 @@ OF_USE_AIDL_BOOT_CONTROL := 1
 # Implemented forced method using /system/bin/pre_rom_flash.sh and .../post_rom_flash.sh
 OF_NO_REFLASH_CURRENT_ORANGEFOX := 1
 
+# Set this to 1 to disable automatic rebooting after openrecoveryscript finishes
+OF_DISABLE_ORS_AUTO_REBOOT := 1
+
 #
