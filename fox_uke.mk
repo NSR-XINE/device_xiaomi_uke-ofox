@@ -85,4 +85,7 @@ OF_NO_REFLASH_CURRENT_ORANGEFOX := 1
 # Set this to 1 to disable automatic rebooting after openrecoveryscript finishes
 OF_DISABLE_ORS_AUTO_REBOOT := 1
 
+# Set this to 1 to force the selection of f2fs when formatting data
+OF_FORCE_DATA_FORMAT_F2FS := 1
+
 #
