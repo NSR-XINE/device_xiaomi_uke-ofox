@@ -6,9 +6,5 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/omni_uke.mk
+    $(LOCAL_DIR)/twrp_uke.mk
 
-COMMON_LUNCH_CHOICES := \
-    omni_uke-user \
-    omni_uke-userdebug \
-    omni_uke-eng

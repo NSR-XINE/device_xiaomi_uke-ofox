@@ -1,0 +1,15 @@
+{
+    "version":"1.0",
+    "enable":"true",
+
+    "gameWhiteList": [
+        "com.xiaomi.gamecenter.sdk.service",
+        "com.happyelements.AndroidAnimal",
+        "com.android.systemui",
+        "com.android.settings",
+        "com.tencent.mobileqq",
+        "com.tencent.jkchess",
+        "com.tencent.mm",
+        "com.sina.weibo"
+    ]
+}
