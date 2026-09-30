@@ -47,6 +47,7 @@ BOARD_BOOT_HEADER_VERSION     := 4
 BOARD_MKBOOTIMG_ARGS          += --header_version $(BOARD_BOOT_HEADER_VERSION)
 BOARD_MKBOOTIMG_ARGS          += --pagesize $(BOARD_KERNEL_PAGESIZE)
 TARGET_PREBUILT_KERNEL        := $(DEVICE_PATH)/prebuilt/kernel
+BOARD_PREBUILT_DTBOIMAGE      := $(DEVICE_PATH)/prebuilt/dtbo.img
 BOARD_USES_GENERIC_KERNEL_IMAGE := true
 
 # Partitions
