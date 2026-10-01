@@ -49,5 +49,12 @@ AB_OTA_PARTITIONS += \
     vendor \
     vendor_dlkm
 
+# Assert
+TARGET_OTA_ASSERT_DEVICE := uke
+
+# Graphics
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.hardware.egl=adreno
+
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
