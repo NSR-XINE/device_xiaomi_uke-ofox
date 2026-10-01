@@ -25,5 +25,4 @@ $(eval $(call add-ndk-platform-shim,android.security.authorization-ndk_platform)
 $(eval $(call add-ndk-platform-shim,android.security.maintenance-ndk_platform))
 $(eval $(call add-ndk-platform-shim,android.system.keystore2-V1-ndk_platform))
 
-include $(call all-subdir-makefiles,$(LOCAL_PATH))
 endif
