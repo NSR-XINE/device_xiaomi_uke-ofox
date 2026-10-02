@@ -8,28 +8,21 @@ LOGMSG() {
 
 LOGMSG "---$SCRIPT_NAME start---"
 
-if [ -s /tmp/recovery_backup.img ]; then
+if [ -s /tmp/fox_backup.img ]; then
 	for slot in _a _b; do
-		REC_PART=""
 		if [ -e /dev/block/bootdevice/by-name/recovery${slot} ]; then
-			REC_PART="/dev/block/bootdevice/by-name/recovery${slot}"
-		elif [ -e /dev/block/bootdevice/by-name/init_boot${slot} ]; then
-			REC_PART="/dev/block/bootdevice/by-name/init_boot${slot}"
-		fi
-
-		if [ -n "$REC_PART" ]; then
-			LOGMSG "Restoring recovery to ${REC_PART}..."
-			if dd if="/tmp/recovery_backup.img" of="${REC_PART}" bs=1M; then
+			LOGMSG "Restoring OrangeFox to slot ${slot}..."
+			if dd if="/tmp/fox_backup.img" of="/dev/block/bootdevice/by-name/recovery${slot}" bs=1M; then
 				sync
 			else
-				LOGMSG "Failed to flash to ${REC_PART}..."
+				LOGMSG "Failed to flash to slot ${slot}..."
 			fi
 		else
-			LOGMSG "Recovery/init_boot partition not found for slot ${slot}, skipping restore..."
+	        LOGMSG "Recovery partition not found for slot ${slot}, skipping restore..."
 		fi
 	done
 else
-	LOGMSG "Unable to find the recovery backup"
+	LOGMSG "Unable to find OrangeFox image for restoring..."
 fi
 
 # LOGMSG "Clearing previous DFE installation logs..."
@@ -40,7 +33,7 @@ fi
 
 # LOGMSG "Preserving recovery.log before recovery reboot..."
 LOGMSG "---$SCRIPT_NAME end---"
-# mkdir -p /persist/AERA/logs
-# cp /tmp/recovery.log "/persist/AERA/logs/dfe_recovery_$(date +"%Y%m%d_%H%M%S").log"
+# mkdir -p /persist/Fox/logs
+# cp /tmp/recovery.log "/persist/Fox/logs/dfe_recovery_$(date +"%Y%m%d_%H%M%S").log"
 
 # reboot recovery

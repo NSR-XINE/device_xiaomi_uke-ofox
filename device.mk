@@ -18,6 +18,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/compression_wit
 # Emulated storage support
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
+# Device-specific OrangeFox configuration
+$(call inherit-product, $(DEVICE_PATH)/fox_uke.mk)
+
 # API
 PRODUCT_SHIPPING_API_LEVEL := 34
 PRODUCT_TARGET_VNDK_VERSION := 34

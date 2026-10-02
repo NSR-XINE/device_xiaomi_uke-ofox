@@ -31,23 +31,16 @@ if [ -z "$slot" ]; then
 else
     LOGMSG "Active boot slot: $slot"
 
-    LOGMSG "Backing up recovery before ROM overwrite..."
-    REC_PART=""
+    LOGMSG "Backing up OrangeFox recovery before ROM overwrites..."
     if [ -e /dev/block/bootdevice/by-name/recovery${slot} ]; then
-        REC_PART="/dev/block/bootdevice/by-name/recovery${slot}"
-    elif [ -e /dev/block/bootdevice/by-name/init_boot${slot} ]; then
-        REC_PART="/dev/block/bootdevice/by-name/init_boot${slot}"
-    fi
-
-    if [ -n "$REC_PART" ]; then
-        if dd if="$REC_PART" of="/tmp/recovery_backup.img" bs=1M; then
+        if dd if="/dev/block/bootdevice/by-name/recovery${slot}" of="/tmp/fox_backup.img" bs=1M; then
             sync
-            LOGMSG "Recovery backup completed from $REC_PART"
+            LOGMSG "Backup of OrangeFox recovery was successful"
         else
-            LOGMSG "Failed to back up recovery from $REC_PART"
+            LOGMSG "Failed to backup OrangeFox recovery..."
         fi
     else
-        LOGMSG "Recovery/init_boot partition not found; skipping backup..."
+        LOGMSG "Recovery partition not found; skipping backup..."
     fi
 fi
 
