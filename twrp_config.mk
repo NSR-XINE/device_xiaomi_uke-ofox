@@ -21,6 +21,7 @@ TW_INCLUDE_FASTBOOTD := true
 
 # Other TWRP Configurations
 TW_THEME := portrait_hdpi
+TW_ROTATION := 270
 TW_FRAMERATE := 120
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
