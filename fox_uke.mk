@@ -18,8 +18,8 @@
 # 	Please maintain this if you use this script or any part of it
 #
 
-# screen settings
-OF_SCREEN_H := 3200
+# screen settings (3:2 aspect ratio: 1080 * 1.5 = 1620)
+OF_SCREEN_H := 1620
 OF_STATUS_H := 100
 OF_CLOCK_POS := 1
 OF_STATUS_INDENT_LEFT := 50
