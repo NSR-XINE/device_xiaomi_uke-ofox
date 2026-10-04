@@ -71,6 +71,7 @@ on property:twrp.modules.loaded=true
     start vendor.qseecomd
     start vibratorfeature-hal-service
     start xiaomi-uinput
+    start touch-init
 
 # Background service to delay the ADSP kick by 2 seconds.
 # This prevents the race condition where ADSP requests adsp_dtb.mdt 

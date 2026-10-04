@@ -1,57 +1,44 @@
 #!/system/bin/sh
 
 DEBUG=0
-[ "$DEBUG" = "1" ] && set -o xtrace;
+[ "$DEBUG" = "1" ] && set -o xtrace
 
 LOGMSG() {
-	echo "I:$@" >> /tmp/recovery.log
-}
-
-quit() {
-	LOGMSG "$@ is loaded";
+	echo "I:load_modules: $@" >> /tmp/recovery.log
 }
 
 load_drivers() {
-	local path1=/lib/modules;
-	local path2=/vendor/lib/modules/1.1;
-	local path3=/vendor/lib/modules;
-	local modules="xiaomi_touch nt36532_touch qti_battery_charger adsp_sleepmon qcom_q6v5 qcom_q6v5_pas si_haptic"
+	local search_paths="/vendor/lib/modules /vendor_dlkm/lib/modules /system_dlkm/lib/modules /lib/modules"
+	local modules="panel_event_notifier miev metis msm_drm qti_battery_charger xiaomi_touch nt36532_touch adsp_sleepmon qcom_q6v5 qcom_q6v5_pas si_haptic"
 
-	# loop through the modules
-	for i in $modules; do
-		# check whether the module is already loaded
-		if lsmod | grep "^$i"; then
-			quit "$i"
+	for mod in $modules; do
+		local clean_mod="${mod//-/_}"
+		if lsmod | grep -q "^${clean_mod} "; then
+			LOGMSG "$mod is already loaded"
 			continue
 		fi
 
-		# try to load the module
-		insmod "$path1/$i.ko" 2>/dev/null
-		if lsmod | grep "^$i"; then
-			quit "$i"
-			continue
-		fi
+		local loaded=0
+		for p in $search_paths; do
+			if [ -f "$p/$mod.ko" ]; then
+				insmod "$p/$mod.ko" 2>/dev/null
+				if lsmod | grep -q "^${clean_mod} "; then
+					LOGMSG "$mod loaded from $p"
+					loaded=1
+					break
+				fi
+			fi
+		done
 
-		insmod "$path2/$i.ko" 2>/dev/null
-		if lsmod | grep "^$i"; then
-			quit "$i"
-			continue
+		if [ $loaded -eq 0 ]; then
+			LOGMSG "$mod failed to load"
 		fi
-
-		insmod "$path3/$i.ko" 2>/dev/null
-		if lsmod | grep "^$i"; then
-			quit "$i"
-			continue
-		fi
-
-		# module failed to load from all paths
-		LOGMSG "$i failed to load"
 	done
 }
 
 SCRIPT_NAME="$(basename "$0")"
 
 LOGMSG "---$SCRIPT_NAME start---"
-load_drivers;
+load_drivers
 LOGMSG "---$SCRIPT_NAME end---"
 exit 0

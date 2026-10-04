@@ -10,28 +10,34 @@
 for f in /dev/xiaomi-touch /dev/xiaomi-touch-knock /dev/xiaomi-thp \
          /proc/tp_selftest /proc/tp_selftest_1; do
     if [ -e "$f" ]; then
-        chown system:system "$f"
-        chmod 0664 "$f"
+        chown system:system "$f" 2>/dev/null
+        chmod 0666 "$f" 2>/dev/null
     fi
 done
-# The THP daemon and HAL clients need world access to the main ioctl node
+
+# The THP daemon, xiaomi-uinput and HAL clients need access to these device nodes
 [ -e /dev/xiaomi-touch ] && chmod 0666 /dev/xiaomi-touch
+[ -e /dev/uinput ] && chmod 0666 /dev/uinput
+
+# Allow directory traversal
+[ -d /sys/class/touch/touch_dev ] && chmod 0755 /sys/class/touch/touch_dev 2>/dev/null
+[ -d /sys/class/touch/tp_dev ] && chmod 0755 /sys/class/touch/tp_dev 2>/dev/null
 
 # touch sysfs nodes (xiaomi_touch module)
 for f in /sys/class/touch/touch_dev/* /sys/class/touch/tp_dev/*; do
-    [ -f "$f" ] || continue
+    [ -e "$f" ] || continue
     case "$f" in
-        */uevent|*/power/*) continue ;;
+        */uevent|*/power|*/power/*) continue ;;
     esac
     chown system:system "$f" 2>/dev/null
-    chmod 0664 "$f" 2>/dev/null
+    chmod 0666 "$f" 2>/dev/null
 done
 
 # Virtual keypad status node
 f=/sys/devices/virtual/keyboard/keypad/keyboard_status_param
 if [ -e "$f" ]; then
-    chown system:system "$f"
-    chmod 0664 "$f"
+    chown system:system "$f" 2>/dev/null
+    chmod 0664 "$f" 2>/dev/null
 fi
 
 exit 0
