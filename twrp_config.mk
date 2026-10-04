@@ -37,19 +37,12 @@ TW_EXTRA_LANGUAGES := false
 TW_DEFAULT_LANGUAGE := en
 TW_DEFAULT_BRIGHTNESS := 200
 TW_NO_SCREEN_BLANK := true
+TW_NO_SCREEN_TIMEOUT := true
 TW_EXCLUDE_APEX := true
 TW_HAS_EDL_MODE := true
 
-# Haptic
-FIXED_HAPTICS := true
-
-ifeq ($(FIXED_HAPTICS),true)
-   TW_SUPPORT_INPUT_AIDL_HAPTICS := true
-   TW_SUPPORT_INPUT_AIDL_HAPTICS_FQNAME := "IVibrator/vibratorfeature"
-   TW_SUPPORT_INPUT_AIDL_HAPTICS_FIX_OFF := true
-else
-   TW_NO_HAPTICS := true
-endif
+# Haptic (Tablet has no internal vibration motor)
+TW_NO_HAPTICS := true
 
 # Device related
 TW_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID := true
