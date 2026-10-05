@@ -19,7 +19,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/xiaomi/$(PRODUCT_RELEASE_NAME)
+DEVICE_PATH := device/xiaomi/uke
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
@@ -100,9 +100,11 @@ TARGET_SCREEN_WIDTH := 2136
 TARGET_SCREEN_HEIGHT := 3200
 TARGET_RECOVERY_ROTATION := 270
 BOARD_USES_QC_TIME_SERVICES := true
-TW_NO_SCREEN_BLANK := true
-TW_NO_SCREEN_TIMEOUT := true
-TW_NO_HAPTICS := true
+TW_THEME := portrait_hdpi
+
+# Include TWRP and OrangeFox configurations
+-include $(DEVICE_PATH)/twrp_config.mk
+-include $(DEVICE_PATH)/fox_uke.mk
 
 # Verified Boot
 BOARD_AVB_ENABLE := true

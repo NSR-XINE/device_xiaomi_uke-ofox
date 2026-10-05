@@ -37,6 +37,15 @@ fi
 if [ "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	echo "Detected build device: $FOX_BUILD_DEVICE"
 
+	export OUT="out/target/product/$FDEVICE"
+	export OF_SCREEN_H=1620
+	export OF_STATUS_H=100
+	export OF_CLOCK_POS=1
+	export OF_STATUS_INDENT_LEFT=50
+	export OF_STATUS_INDENT_RIGHT=50
+	export OF_ALLOW_DISABLE_NAVBAR=0
+	export OF_USE_GREEN_LED=0
+
 	export FOX_VIRTUAL_AB_DEVICE=1
         export FOX_VANILLA_BUILD=1
     	export FOX_ENABLE_APP_MANAGER=1
