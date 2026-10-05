@@ -101,6 +101,7 @@ TARGET_SCREEN_HEIGHT := 3200
 TARGET_RECOVERY_ROTATION := 270
 BOARD_USES_QC_TIME_SERVICES := true
 TW_THEME := portrait_hdpi
+TARGET_RECOVERY_DEVICE_MODULES += twres-splash twres-ui
 
 # Include TWRP and OrangeFox configurations
 -include $(DEVICE_PATH)/twrp_config.mk
