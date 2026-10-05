@@ -6,6 +6,7 @@
 ****************************************************************************-->
    <hal format="aidl">
        <name>vendor.qti.hardware.qseecom</name>
+       <version>1</version>
        <interface>
            <name>IQSEECom</name>
            <instance>default</instance>
