@@ -1,7 +1,6 @@
 /lib/modules/adsp_sleepmon.ko: /lib/modules/qcom_q6v5_pas.ko /lib/modules/smem.ko
 /lib/modules/altmode-glink.ko: /lib/modules/pmic_glink.ko /lib/modules/qcom_ipc_logging.ko
 /lib/modules/arm_smmu.ko: /lib/modules/qcom_iommu_util.ko /lib/modules/iommu-logger.ko /lib/modules/qcom-scm.ko
-/lib/modules/aw8697-haptic.ko: /lib/modules/miev.ko
 /lib/modules/bam_dma.ko: /lib/modules/qcom_ipc_logging.ko
 /lib/modules/bcl_pmic5.ko: /lib/modules/qcom_ipc_logging.ko
 /lib/modules/bcl_soc.ko:
@@ -215,7 +214,6 @@
 /lib/modules/qcom-cpufreq-hw.ko:
 /lib/modules/qcom-dcvs.ko: /lib/modules/dcvs_fp.ko
 /lib/modules/qcom-dload-mode.ko: /lib/modules/minidump.ko /lib/modules/qcom-scm.ko
-/lib/modules/qcom-hv-haptics.ko: /lib/modules/qti_battery_charger.ko /lib/modules/miev.ko
 /lib/modules/qcom-i2c-pmic.ko: /lib/modules/qti-regmap-debugfs.ko
 /lib/modules/qcom-ipcc.ko:
 /lib/modules/qcom-pdc.ko: /lib/modules/qcom_ipc_logging.ko /lib/modules/qcom-scm.ko
@@ -299,7 +297,6 @@
 /lib/modules/sdhci-msm.ko: /lib/modules/qcom_ipc_logging.ko /lib/modules/cqhci.ko /lib/modules/clk-qcom.ko /lib/modules/pinctrl-msm.ko /lib/modules/qcom-scm.ko
 /lib/modules/secure_buffer.ko: /lib/modules/qcom-scm.ko
 /lib/modules/sg.ko:
-/lib/modules/si_haptic.ko: /lib/modules/miev.ko
 /lib/modules/slim-qcom-ngd-ctrl.ko: /lib/modules/qcom_ipc_logging.ko /lib/modules/rproc_qcom_common.ko /lib/modules/pdr_interface.ko /lib/modules/slimbus.ko /lib/modules/qmi_helpers.ko
 /lib/modules/slimbus.ko:
 /lib/modules/smcinvoke_dlkm.ko: /lib/modules/qcom-scm.ko /lib/modules/mem_buf_dev.ko /lib/modules/qseecom_proxy.ko

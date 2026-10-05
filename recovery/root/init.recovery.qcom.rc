@@ -69,7 +69,6 @@ on property:twrp.modules.loaded=true
     
     # 4. Start non-ADSP dependent daemons immediately
     start vendor.qseecomd
-    start vibratorfeature-hal-service
     start xiaomi-uinput
 
 # Background service to delay the ADSP kick by 2 seconds.

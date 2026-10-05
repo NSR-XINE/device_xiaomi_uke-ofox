@@ -13,7 +13,6 @@ softdep msm_eva pre: synx-driver
 softdep msm_eva pre: frpc-adsprpc
 softdep ipclite pre: qcom_hwspinlock
 softdep dynpf_scmi pre: qcom_scmi_client
-softdep si_haptic pre: aw8697-haptic
 softdep qsee_ipc_irq_bridge pre: qcom_ipcc
 softdep dwc3_msm pre: phy-generic phy-msm-snps-hs phy-msm-ssusb-qmp eud
 softdep machine_dlkm pre: bt_fm_slim

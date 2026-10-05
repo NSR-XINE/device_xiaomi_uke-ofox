@@ -19,7 +19,6 @@ alias of:N*T*Cnvidia,smmu-500 arm_smmu
 alias of:N*T*Cnvidia,smmu-500C* arm_smmu
 alias of:N*T*Cqcom,smmu-v2 arm_smmu
 alias of:N*T*Cqcom,smmu-v2C* arm_smmu
-alias i2c:awinic_haptic aw8697_haptic
 alias of:N*T*Cqcom,bam-v1.3.0 bam_dma
 alias of:N*T*Cqcom,bam-v1.3.0C* bam_dma
 alias of:N*T*Cqcom,bam-v1.4.0 bam_dma
