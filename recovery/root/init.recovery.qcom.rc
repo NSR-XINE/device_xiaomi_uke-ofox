@@ -55,7 +55,6 @@ on init
 on boot
     setprop sys.usb.config adb
 
-on property:twrp.modules.loaded=true
     # 1. Create the mount point and mount the modem partition
     mkdir /vendor/firmware_mnt 0770 system system
     wait /dev/block/bootdevice/by-name/modem${ro.boot.slot_suffix} 2
@@ -70,6 +69,10 @@ on property:twrp.modules.loaded=true
     # 4. Start non-ADSP dependent daemons immediately
     start vendor.qseecomd
     start xiaomi-uinput
+
+    # 5. Signal module readiness for ODM / TWRP services
+    setprop vendor.modules.loaded true
+    setprop twrp.modules.loaded true
 
 # Background service to delay the ADSP kick by 2 seconds.
 # This prevents the race condition where ADSP requests adsp_dtb.mdt 

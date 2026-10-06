@@ -54,5 +54,7 @@ SCRIPT_NAME="$(basename "$0")"
 
 LOGMSG "---$SCRIPT_NAME start---"
 load_drivers;
+setprop vendor.modules.loaded true
+setprop twrp.modules.loaded true
 LOGMSG "---$SCRIPT_NAME end---"
 exit 0
