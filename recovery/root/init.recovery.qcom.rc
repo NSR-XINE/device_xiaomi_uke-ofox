@@ -94,7 +94,6 @@ on property:vendor.adsp.started=true
 
 on property:vendor.sys.listeners.registered=true
     start vendor.ssgtzd
-    start vendor.secure_element
     start vendor.keymint-qti
     start vendor.gatekeeper_default
 
