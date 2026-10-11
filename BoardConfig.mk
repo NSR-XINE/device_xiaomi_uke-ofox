@@ -113,7 +113,7 @@ $(shell mkdir -p out/target/product/uke/recovery/root/twres && cp -rf device/xia
 BOARD_AVB_ENABLE := true
 
 # Crypto
-FIXED_DECRYPT := true
+FIXED_DECRYPT := false
 TW_INCLUDE_CRYPTO := $(FIXED_DECRYPT)
 TW_INCLUDE_CRYPTO_FBE := $(FIXED_DECRYPT)
 TW_INCLUDE_FBE_METADATA_DECRYPT := $(FIXED_DECRYPT)
