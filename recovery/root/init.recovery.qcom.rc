@@ -50,6 +50,8 @@ on fs
     mount none /tmp/persist /mnt/vendor/persist bind rec
 
 on init
+    setprop persist.twrp.rotation 270
+    start servicemanager
     start vendor.boot-qti
 
 on boot

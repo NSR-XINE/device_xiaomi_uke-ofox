@@ -17,9 +17,8 @@ on post-fs-data
 on property:vendor.modules.loaded=true
     wait /sys/class/touch/touch_dev/abnormal_event
     sleep 1
-    # apply permissions via script: init aborts the whole action on the
-    # first chown of a missing node, and this device lacks most phone paths
-    exec /system/bin/sh /odm/etc/touch_perms.sh
+    start panel-info-sh
+    start touch-perms-sh
     # Panel is registered and permissions are in place: safe to init THP now
     start touchfeature-service
 on charger
@@ -54,4 +53,11 @@ service touch-kmsg-init-sh /system/bin/sh /odm/etc/tp_kmsg_init.sh
     class main
     group root system
     oneshot
+    seclabel u:r:recovery:s0
+
+service touch-perms-sh /system/bin/sh /odm/etc/touch_perms.sh
+    class core
+    user root
+    oneshot
+    group root system
     seclabel u:r:recovery:s0
