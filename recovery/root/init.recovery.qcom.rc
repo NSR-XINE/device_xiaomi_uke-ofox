@@ -48,9 +48,15 @@ on fs
     mkdir /mnt/vendor/persist 0775 shell system
     mkdir /tmp/persist 0775 shell system
     mount none /tmp/persist /mnt/vendor/persist bind rec
+    mkdir /mnt/vendor/persist/data 0775 system system
+    mkdir /tmp/persist/data 0775 system system
+    mkdir /data/vendor 0775 system system
+    mkdir /data/vendor/tzstorage 0770 system system
+    mkdir /data/vendor/qwes 0755 system system
 
 on init
     setprop persist.twrp.rotation 270
+    setprop vendor.gatekeeper.is_security_level_spu 0
     start servicemanager
     start vendor.boot-qti
 
