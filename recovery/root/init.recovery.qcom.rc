@@ -58,6 +58,7 @@ on init
     setprop persist.twrp.rotation 270
     setprop vendor.gatekeeper.is_security_level_spu 0
     start servicemanager
+    start hwservicemanager
     start vendor.boot-qti
 
 on boot
