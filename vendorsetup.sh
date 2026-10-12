@@ -39,13 +39,7 @@ if [ "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 
 	export OUT="out/target/product/$FDEVICE"
 
-	# Stage twres files directly into out target
-	mkdir -p "out/target/product/$FDEVICE/recovery/root/twres"
-	if [ -d "device/xiaomi/$FDEVICE/recovery/root/twres" ]; then
-		cp -rf "device/xiaomi/$FDEVICE/recovery/root/twres/"* "out/target/product/$FDEVICE/recovery/root/twres/" 2>/dev/null || true
-	fi
-
-	export OF_SCREEN_H=1620
+	export OF_SCREEN_H=3200
 	export OF_STATUS_H=100
 	export OF_CLOCK_POS=1
 	export OF_STATUS_INDENT_LEFT=50

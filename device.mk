@@ -52,7 +52,3 @@ AB_OTA_PARTITIONS += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
 
-# Recovery twres theme files
-PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/recovery/root/twres/splash.xml:recovery/root/twres/splash.xml \
-    $(DEVICE_PATH)/recovery/root/twres/ui.xml:recovery/root/twres/ui.xml

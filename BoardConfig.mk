@@ -102,9 +102,6 @@ TARGET_RECOVERY_ROTATION := 270
 BOARD_USES_QC_TIME_SERVICES := true
 TW_THEME := portrait_hdpi
 
-# Ensure twres directory and theme files are staged into recovery root output
-$(shell mkdir -p out/target/product/uke/recovery/root/twres && cp -rf device/xiaomi/uke/recovery/root/twres/* out/target/product/uke/recovery/root/twres/ 2>/dev/null)
-
 # Include TWRP and OrangeFox configurations
 -include $(DEVICE_PATH)/twrp_config.mk
 -include $(DEVICE_PATH)/fox_uke.mk

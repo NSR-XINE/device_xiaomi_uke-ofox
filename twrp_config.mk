@@ -21,7 +21,6 @@ TW_INCLUDE_FASTBOOTD := true
 
 # Other TWRP Configurations
 TW_THEME := portrait_hdpi
-$(shell mkdir -p out/target/product/uke/recovery/root/twres && cp -rf device/xiaomi/uke/recovery/root/twres/* out/target/product/uke/recovery/root/twres/ 2>/dev/null)
 TW_FRAMERATE := 120
 TW_ROTATION := 270
 RECOVERY_SDCARD_ON_DATA := true
