@@ -39,6 +39,15 @@ if [ "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 
 	export OUT="out/target/product/$FDEVICE"
 
+	# Auto-redirect /tmp/$DEVICE to $HOME/tmp/$DEVICE to prevent Permission denied on multi-user/shared servers
+	mkdir -p "$HOME/tmp"
+	if [ -f "build/make/envsetup.sh" ] && grep -q '/tmp/\$DEVICE' "build/make/envsetup.sh" 2>/dev/null; then
+		sed -i 's|/tmp/\$DEVICE|$HOME/tmp/\$DEVICE|g' "build/make/envsetup.sh" 2>/dev/null || true
+	fi
+	if [ -f "vendor/recovery/OrangeFox_vendor.sh" ] && grep -q '/tmp/\$FOX_DEVICE' "vendor/recovery/OrangeFox_vendor.sh" 2>/dev/null; then
+		sed -i 's|/tmp/\$FOX_DEVICE|$HOME/tmp/\$FOX_DEVICE|g' "vendor/recovery/OrangeFox_vendor.sh" 2>/dev/null || true
+	fi
+
 	export OF_SCREEN_H=3200
 	export OF_STATUS_H=100
 	export OF_CLOCK_POS=1
