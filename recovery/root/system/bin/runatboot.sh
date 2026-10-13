@@ -64,11 +64,38 @@ fi
 
 ensure_touch_service
 
+# Force-wake touch IC & activate touch state
+wake_touch_ic() {
+	if [ -e /sys/class/touch/touch_dev/suspend_state ]; then
+		echo 0 > /sys/class/touch/touch_dev/suspend_state 2>/dev/null
+	fi
+	if [ -e /sys/class/touch/touch_dev/touch_active_status ]; then
+		echo 1 > /sys/class/touch/touch_dev/touch_active_status 2>/dev/null
+	fi
+	if [ -e /proc/tp_debug ]; then
+		echo "tp-suspend-off" > /proc/tp_debug 2>/dev/null
+		echo "irq-enable" > /proc/tp_debug 2>/dev/null
+	fi
+	LOGMSG "Dispatched touch wake-up sequence"
+}
+
+ensure_uinput() {
+	if ! pidof xiaomi-uinput >/dev/null 2>&1; then
+		if [ -x /system/bin/xiaomi-uinput ]; then
+			/system/bin/xiaomi-uinput </dev/null >/dev/null 2>&1 &
+			LOGMSG "Started xiaomi-uinput daemon"
+		fi
+	fi
+}
+
 # Keep the THP daemon out of doze mode for the whole recovery session
 if [ -f /system/bin/touch_watchdog.sh ]; then
 	/system/bin/touch_watchdog.sh </dev/null >/dev/null 2>&1 &
 	LOGMSG "Touch watchdog started"
 fi
+
+wake_touch_ic
+ensure_uinput
 
 /sbin/prune_historic_logs.sh 10
 

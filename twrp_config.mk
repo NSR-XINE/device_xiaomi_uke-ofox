@@ -44,7 +44,7 @@ TW_NO_HAPTICS := true
 
 # Device related
 TW_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID := true
-TW_LOAD_VENDOR_MODULES := "qcom_q6v5.ko qcom_q6v5_pas.ko adsp_loader_dlkm.ko adsp_sleepmon.ko qti_battery_charger.ko xiaomi_touch.ko nt36532_touch.ko"
+TW_LOAD_VENDOR_MODULES := "qcom_q6v5.ko qcom_q6v5_pas.ko adsp_loader_dlkm.ko adsp_sleepmon.ko panel_event_notifier.ko miev.ko mi_schedule.ko metis.ko qti_battery_charger.ko xiaomi_touch.ko nt36532_touch.ko"
 TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
 TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone48/temp"
 TW_BATTERY_SYSFS_WAIT_SECONDS := 6

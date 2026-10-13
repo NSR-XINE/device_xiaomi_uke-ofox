@@ -16,7 +16,6 @@ on post-fs-data
 # is done and the touch sysfs exists, then start the service.
 on property:vendor.modules.loaded=true
     wait /sys/class/touch/touch_dev/abnormal_event
-    sleep 1
     start panel-info-sh
     start touch-perms-sh
     # Panel is registered and permissions are in place: safe to init THP now
